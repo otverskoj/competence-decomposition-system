@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import List
 from pydantic import BaseModel
 
 
@@ -14,11 +14,11 @@ class Keyword(BaseModel):
 
 class TopicData(BaseModel):
     topic: int
-    keywords: Iterable[Keyword]
+    keywords: List[Keyword]
 
 
 class CompetenceDecomposition(BaseModel):
     competence: str
     top_n: int
-    topic_indices: Iterable[int]
-    topic_keywords: Iterable[TopicData]
+    topic_indices: List[int]
+    topic_keywords: List[TopicData]

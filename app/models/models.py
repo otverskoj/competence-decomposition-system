@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import List
 from pydantic import BaseModel
 from app.enums.track import Track
 from app.enums.code import Code
@@ -9,9 +9,10 @@ class Competence(BaseModel):
     track: Track
     code: Code
     text: str
-    topic_indices: Iterable[int]
+    topic_indices: List[int]
 
 
 class Topic(BaseModel):
+    index: int
     name: str
-    keywords: Iterable[Keyword]
+    keywords: List[Keyword]
