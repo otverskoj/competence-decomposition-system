@@ -1,8 +1,6 @@
-import json
-from pathlib import Path
-from app.models.models import Competence
+import uvicorn
+from app.api import app
 
 
-data = json.loads(Path('app', 'data', 'competencies_with_topics.json').read_text(encoding='utf-8'))
-competences = list(map(lambda d: Competence(**d), data))
-print(competences[0].code.value)
+if __name__ == '__main__':
+    uvicorn.run(app, host='127.0.0.1', port=8000)
