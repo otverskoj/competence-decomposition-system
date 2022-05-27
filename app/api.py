@@ -6,7 +6,8 @@ from app.utils import (
     find_closest_competence,
     load_competencies,
     load_topics,
-    all_topics_keywords)
+    all_topics_keywords
+)
 
 
 COMPETENCIES = load_competencies()
@@ -35,6 +36,6 @@ def competence_decomposition(data: CompetenceRequest):
     return {
         'competence': data.competence,
         'top_n': data.top_n,
-        'topic_indices': closest_competence.topic_indices,
+        'topic_indices': closest_competence.topic_indices[:data.top_n],
         'topic_keywords': all_keywords
     }
